@@ -208,20 +208,20 @@ sap.ui.define([
                     this.getView().byId("idDatePicker").setValueStateText("");
                     sap.m.MessageBox.success("Appointed booked successfully");
                 }
-            }, 
+            },
             onCalendarViewPress: function () {
                 this.getView().byId("idCalendar").setVisible(true);
                 this.getView().byId("idCheckBtn").setVisible(false);
                 // this.getView().byId("idHideBtn").setVisible(true);
             },
-            
+
             onChangeDateTime: function (oEvent) {
                 var enteredDate = this.getView().byId("idDatePicker").getValue();
                 var modelData = this.getOwnerComponent().getModel("bookedSchedule").getData();
                 var count = 0;
                 for (var i = 0; i < modelData.length; i++) {
-                    for (var z = 0; z < modelData[i].Time.split(",").length; z++) {
-                        var jsonDateTime = modelData[i].Date + ", " + modelData[i].Time.split(", ")[z];
+                    for (var z = 0; z < modelData[i].Time.length; z++) {
+                        var jsonDateTime = modelData[i].Date + ", " + modelData[i].Time[z];
                         if (enteredDate === jsonDateTime) {
                             count++
                             break;
@@ -245,9 +245,21 @@ sap.ui.define([
 
             },
             onCheckSchedule: function (oEvent) {
-                var oButton = oEvent.getSource();
-                this.byId("actionSheet").openBy(oButton);
+                this.onTableViewPress();
+                // var oButton = oEvent.getSource();
+                // this.byId("actionSheet").openBy(oButton);
             },
+            onTimePress: function (oEvent) {
+                var date = oEvent.getSource().getParent().getParent().getCells()[0].getProperty("text");
+                var time = oEvent.getSource().getProperty("text");
+                var dateTimeValue = date + ", " + time;
+                this.getView().byId("idDatePicker").setValue(dateTimeValue);
+                this.onCloseMessage();
+            },
+            onCloseMessage: function () { 
+                this.message.close();
+            },
+            
             onTableViewPress: function () {
                 this.getView().byId("idCalendar").setVisible(false);
                 if (!this.message) {
@@ -256,6 +268,6 @@ sap.ui.define([
                 }
                 this.message.open();
             }
- 
+
         });
     });

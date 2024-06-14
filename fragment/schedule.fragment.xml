@@ -1,23 +1,20 @@
 <core:FragmentDefinition
-	xmlns="sap.m"
-	xmlns:core="sap.ui.core">
-<TableSelectDialog
-       contentHeight="40%"
-       contentWidth="40%"
-		id="myDialog"
-		noDataText="No Products Found"
-		title="Available Slots"
-		cancel="handleClose"
-		items="{bookedSchedule>/}">
-		<ColumnListItem id="idColumnListItem" vAlign="Middle">
-			<cells>
-				
-				<Text id="idDate" text="{bookedSchedule>Date}" />
-				<Link id="idTime" text="{bookedSchedule>Time}" />
-				
-			</cells>
-		</ColumnListItem>
-		<columns>
+ xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form"
+	xmlns:unified="sap.ui.unified">
+<Dialog title="Message Details" horizontalScrolling='true'
+		verticalScrolling='true'  contentWidth="100%" draggable="true">
+		<form:Form editable="true" visible="true">
+		<form:layout>
+				<form:ResponsiveGridLayout id="formlayoutId" labelSpanXL="0" labelSpanL="0" labelSpanM="0" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+					emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</form:layout>
+			<form:formContainers>
+				<form:FormContainer visible="true">
+					<form:formElements>
+						<form:FormElement> 
+							<form:fields>
+								<Table id="tblMessageDetails" items="{bookedSchedule>/}">
+								<columns>
 			<Column id="idColumnDate" width="12em">
 				<header>
 					<Text id="idDateValue" text="{i18n>Date}" />
@@ -30,6 +27,33 @@
 			</Column>
 			
 		</columns>
-	</TableSelectDialog>
+		<items>
+		<ColumnListItem id="idColumnListItem" vAlign="Middle">
+			<cells>
+				
+				<Text id="idDate" text="{bookedSchedule>Date}" />
+				<HBox alignItems="Center" justifyContent="SpaceAround">
+			<Link id="idTime1" text="{bookedSchedule>Time/0}" press="onTimePress"/>
+			<Link id="idTime2" text="{bookedSchedule>Time/1}" press="onTimePress"/>
+			<Link id="idTime3" text="{bookedSchedule>Time/2}" press="onTimePress"/>
+			<Link id="idTime4" text="{bookedSchedule>Time/3}" press="onTimePress"/>
+		</HBox>
+				 
+				
+			</cells>
+		</ColumnListItem>
+		</items>
+		
+		</Table>
+							</form:fields>
+						</form:FormElement>
+					</form:formElements>
+				</form:FormContainer>
+			</form:formContainers>
+			</form:Form>
+			<buttons>
+			<Button id="closebtn" press="onCloseMessage" text="Cancel"  type="Reject"/>
+		</buttons>
+	</Dialog>
 	
 </core:FragmentDefinition>

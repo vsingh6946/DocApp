@@ -7,8 +7,8 @@
     
         <!-- <f:SimpleForm> -->
          
-        <Page>
-        <VBox class="sapUiSmallMargin">
+        <Page id="idPage">
+        <VBox class="sapUiSmallMargin" id="idVbox">
 		<f:SimpleForm id="SimpleFormToolbar"
 			editable="true"
 			layout="ResponsiveGridLayout"
@@ -23,10 +23,10 @@
 			emptySpanS="0"
 			columnsXL="2"
 			columnsL="1"
-			columnsM="1"
+			columnsM="1" 
 			singleContainerFullSize="false">
             <f:content>
-				<OverflowToolbar class="sapUiMediumMarginTop">
+				<OverflowToolbar id="idoverflowtool" class="sapUiMediumMarginTop">
 			<ToolbarSpacer/>
 					<Title id="Title2" text="Doctor Appointment"/>
 					<Button icon="sap-icon://stethoscope"/>
@@ -46,9 +46,9 @@
          />
          
          <Button text="Check Available Slots" press="onCheckSchedule">
-         <dependents>
+         <!-- <dependents>
           <core:Fragment fragmentName="project1.fragment.actionSheet"/>
-         </dependents>
+         </dependents> -->
          </Button>
          <!-- <Button text="Check Available Slots (Calendar View)" visible="false" id="idCheckBtn" type="Emphasized" press="onCheckCalendar"/> -->
          <!-- <Button text="Hide Available Slots (Calendar View)" visible="false" id="idHideBtn" class="sapUiSmallMarginBegin" type="Emphasized" press="onHideCalendar"/> -->
@@ -78,7 +78,6 @@
 			startDate="{path: '/startDate'}"
 			appointments="{path: '/appointments'}">
 			<views>
-				<SinglePlanningCalendarDayView key="DayView" title="Day" />
 				<SinglePlanningCalendarWorkWeekView key="WorkWeekView" title="Work Week" />
 				<SinglePlanningCalendarWeekView key="WeekView" title="Week" />
 				<SinglePlanningCalendarMonthView key="MonthView" title="Month" />
