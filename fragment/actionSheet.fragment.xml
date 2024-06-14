@@ -5,6 +5,6 @@
 	title="Choose Your Action"
 	showCancelButton="true"
 	placement="Bottom">
-    <Button text="Table View" press="onTableViewPress"/>
-    <Button text="Calendar View" press="onCalendarViewPress"/>
+    <Button text="Table View" id="idTableView" press="onTableViewPress"/>
+    <Button text="Calendar View" id="idCalendarView" press="onCalendarViewPress"/>
     </ActionSheet>
