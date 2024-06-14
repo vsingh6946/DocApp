@@ -207,8 +207,8 @@ sap.ui.define([
                     this.getView().byId("idDatePicker").setValueState("None");
                     this.getView().byId("idDatePicker").setValueStateText("");
                     sap.m.MessageBox.success("Appointed booked successfully");
-                }//Comment
-            },  //test
+                }
+            }, 
             onCalendarViewPress: function () {
                 this.getView().byId("idCalendar").setVisible(true);
                 this.getView().byId("idCheckBtn").setVisible(false);
@@ -256,9 +256,6 @@ sap.ui.define([
                 }
                 this.message.open();
             }
-
-
-
-            //  
+ 
         });
     });
