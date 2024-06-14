@@ -25,6 +25,13 @@
 			columnsL="1"
 			columnsM="1"
 			singleContainerFullSize="false">
+            <f:content>
+				<OverflowToolbar class="sapUiMediumMarginTop">
+			<ToolbarSpacer/>
+					<Title id="Title2" text="Doctor Appointment"/>
+					<Button icon="sap-icon://stethoscope"/>
+					<ToolbarSpacer/>
+				</OverflowToolbar>
         
         <Label text="Patient Name" design="Bold"/>
         <Input id="patientName" width="60%"/>
@@ -57,6 +64,7 @@
 			type="Emphasized"
 			text="Book Appointment"
 			press="onBookAppointment" />
+            </f:content>
             </f:SimpleForm>
             </VBox>
                  
