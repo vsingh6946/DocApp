@@ -9,23 +9,23 @@
 		title="Available Slots"
 		cancel="handleClose"
 		items="{bookedSchedule>/}">
-		<ColumnListItem vAlign="Middle">
+		<ColumnListItem id="idColumnListItem" vAlign="Middle">
 			<cells>
 				
-				<Text text="{bookedSchedule>Date}" />
-				<Link text="{bookedSchedule>Time}" />
+				<Text id="idDate" text="{bookedSchedule>Date}" />
+				<Link id="idTime" text="{bookedSchedule>Time}" />
 				
 			</cells>
 		</ColumnListItem>
 		<columns>
-			<Column width="12em">
+			<Column id="idColumnDate" width="12em">
 				<header>
-					<Text text="{i18n>Date}" />
+					<Text id="idDateValue" text="{i18n>Date}" />
 				</header>
 			</Column>
-			<Column minScreenWidth="Tablet" demandPopin="true">
+			<Column id="idColumnTime" >
 				<header>
-					<Text text="{i18n>Time}" />
+					<Text id="idTimeValue" text="{i18n>Time}" />
 				</header>
 			</Column>
 			

@@ -4,20 +4,32 @@
     xmlns:unified="sap.ui.unified" xmlns:core="sap.ui.core"
     	xmlns:l="sap.ui.layout">
 	
-    <Page id="page" title="{i18n>title}" >
+    
         <!-- <f:SimpleForm> -->
-         <FlexBox
-        alignItems="Center"
-        justifyContent="Center">
-      <items>
+         
         
-        <VBox class="sapUiLargeMargin" >
+        <VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormToolbar"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="4"
+			labelSpanL="4"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="3"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false">
         
         <Label text="Patient Name" design="Bold"/>
-        <Input id="patientName" width="100%"/>
+        <Input id="patientName" width="60%"/>
         <Label text="Date and Time" design="Bold"/>
         <DateTimePicker
-        width="100%"
         displayFormat="dd-MM-yyyy, h:mm a"
         valueFormat="dd-MM-yyyy, h:mm a"
         minutesStep="15"
@@ -25,32 +37,31 @@
 		id="idDatePicker"
 		change="onChangeDateTime"
          />
-         <HBox >
+         
          <Button text="Check Available Slots" press="onCheckSchedule">
          <dependents>
           <core:Fragment fragmentName="project1.fragment.actionSheet"/>
          </dependents>
          </Button>
-         <Button text="Check Available Slots (Calendar View)" visible="false" id="idCheckBtn" type="Emphasized" press="onCheckCalendar"/>
-         <Button text="Hide Available Slots (Calendar View)" visible="false" id="idHideBtn" class="sapUiSmallMarginBegin" type="Emphasized" press="onHideCalendar"/>
-         </HBox>
+         <!-- <Button text="Check Available Slots (Calendar View)" visible="false" id="idCheckBtn" type="Emphasized" press="onCheckCalendar"/> -->
+         <!-- <Button text="Hide Available Slots (Calendar View)" visible="false" id="idHideBtn" class="sapUiSmallMarginBegin" type="Emphasized" press="onHideCalendar"/> -->
+         
+         
         <Label text="Description of Health issue" design="Bold"/>
-        <TextArea id="idHealthDesc" width="120%" growing="true" growingMaxLines="2"/>
+        <TextArea id="idHealthDesc" growing="true" growingMaxLines="2"/>
         
         <!-- <l:HorizontalLayout class="sapUiContentPadding" > -->
+        <Label text=""/>
         <Button
+            width="30%"
 			type="Emphasized"
 			text="Book Appointment"
 			press="onBookAppointment" />
+            </f:SimpleForm>
             </VBox>
                  
-   </items>
    
-    </FlexBox>
-    
-    
-                                
-     <!-- </f:SimpleForm>   -->
+
         <SinglePlanningCalendar
             visible="false"
 			id="idCalendar"
@@ -73,10 +84,7 @@
 				</unified:CalendarAppointment>
 			</appointments>
 		</SinglePlanningCalendar>
-        
-            <!-- </l:HorizontalLayout> -->
             
-            
-    </Page>
+    
     
 </mvc:View>
