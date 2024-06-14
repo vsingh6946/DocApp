@@ -1,0 +1,10 @@
+<ActionSheet id="actionSheet"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	core:require="{ MessageToast: 'sap/m/MessageToast' }"
+	title="Choose Your Action"
+	showCancelButton="true"
+	placement="Bottom">
+    <Button text="Table View" press="onTableViewPress"/>
+    <Button text="Calendar View" press="onCalendarViewPress"/>
+    </ActionSheet>

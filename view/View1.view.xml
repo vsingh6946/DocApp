@@ -1,0 +1,82 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+    xmlns:unified="sap.ui.unified" xmlns:core="sap.ui.core"
+    	xmlns:l="sap.ui.layout">
+	
+    <Page id="page" title="{i18n>title}" >
+        <!-- <f:SimpleForm> -->
+         <FlexBox
+        alignItems="Center"
+        justifyContent="Center">
+      <items>
+        
+        <VBox class="sapUiLargeMargin" >
+        
+        <Label text="Patient Name" design="Bold"/>
+        <Input id="patientName" width="100%"/>
+        <Label text="Date and Time" design="Bold"/>
+        <DateTimePicker
+        width="100%"
+        displayFormat="dd-MM-yyyy, h:mm a"
+        valueFormat="dd-MM-yyyy, h:mm a"
+        minutesStep="15"
+        showTimezone="false"
+		id="idDatePicker"
+		change="onChangeDateTime"
+         />
+         <HBox >
+         <Button text="Check Available Slots" press="onCheckSchedule">
+         <dependents>
+          <core:Fragment fragmentName="project1.fragment.actionSheet"/>
+         </dependents>
+         </Button>
+         <Button text="Check Available Slots (Calendar View)" visible="false" id="idCheckBtn" type="Emphasized" press="onCheckCalendar"/>
+         <Button text="Hide Available Slots (Calendar View)" visible="false" id="idHideBtn" class="sapUiSmallMarginBegin" type="Emphasized" press="onHideCalendar"/>
+         </HBox>
+        <Label text="Description of Health issue" design="Bold"/>
+        <TextArea id="idHealthDesc" width="120%" growing="true" growingMaxLines="2"/>
+        
+        <!-- <l:HorizontalLayout class="sapUiContentPadding" > -->
+        <Button
+			type="Emphasized"
+			text="Book Appointment"
+			press="onBookAppointment" />
+            </VBox>
+                 
+   </items>
+   
+    </FlexBox>
+    
+    
+                                
+     <!-- </f:SimpleForm>   -->
+        <SinglePlanningCalendar
+            visible="false"
+			id="idCalendar"
+			class="sapUiSmallMarginTop"
+			title= "Doctor Schedule"
+			startDate="{path: '/startDate'}"
+			appointments="{path: '/appointments'}">
+			<views>
+				<SinglePlanningCalendarDayView key="DayView" title="Day" />
+				<SinglePlanningCalendarWorkWeekView key="WorkWeekView" title="Work Week" />
+				<SinglePlanningCalendarWeekView key="WeekView" title="Week" />
+				<SinglePlanningCalendarMonthView key="MonthView" title="Month" />
+			</views>
+			<appointments>
+				<unified:CalendarAppointment
+					title= "{title}"
+					type= "{type}"
+					startDate= "{startDate}"
+					endDate= "{endDate}">
+				</unified:CalendarAppointment>
+			</appointments>
+		</SinglePlanningCalendar>
+        
+            <!-- </l:HorizontalLayout> -->
+            
+            
+    </Page>
+    
+</mvc:View>
