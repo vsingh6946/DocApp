@@ -7,7 +7,7 @@
     
         <!-- <f:SimpleForm> -->
          
-        
+        <Page>
         <VBox class="sapUiSmallMargin">
 		<f:SimpleForm id="SimpleFormToolbar"
 			editable="true"
@@ -85,6 +85,6 @@
 			</appointments>
 		</SinglePlanningCalendar>
             
-    
+    </Page>
     
 </mvc:View>
